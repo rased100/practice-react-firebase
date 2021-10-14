@@ -1,0 +1,13 @@
+.header-bg{
+    background-color: rgba(2, 2, 34, 0.842);
+    padding: 20px;
+    
+}
+.header{
+margin: 20px;
+text-decoration: none;
+color: white;
+}
+.active{
+    color: yellow;
+}
