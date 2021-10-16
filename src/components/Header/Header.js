@@ -12,7 +12,7 @@ const Header = () => {
 
             {user?.email || user?.photoURL ?
                 <span>
-                    <span className="text-white"><span>User: {user.displayName}{<img width='40px' src={user?.photoURL} />}</span></span>
+                    <span className="text-white"><span>User: {user.displayName}{' '} {<img className="photo" width='50px' alt="" src={user?.photoURL} />}</span></span>
                     < NavLink to="/" className="header mx-5" activeClassName="active"><button className="btn btn-danger" onClick={logOut}>Log-uot</button></NavLink>
                 </span>
                 :

@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { handleGoogleSignIn, handleGithubSignIn } = useAuth();
+    const { handleGoogleSignIn, handleGithubSignIn, handleFacebookSignIn } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
@@ -31,6 +31,15 @@ const Login = () => {
             });
     }
 
+    const handleFacebookSignInTwo = () => {
+        handleFacebookSignIn()
+            .then((result) => {
+                history.push(redirect_uri);
+            })
+            .catch((error) => {
+            });
+    }
+
     return (
         <div className="m-5">
             <h2>This is Log-in</h2><br />
@@ -39,7 +48,8 @@ const Login = () => {
             <input type="submit" value="Submit" /><br /><br />
             <div>-----or-----</div><br />
             <Button onClick={handleGoogleSignInTwo}>Sign in with Google</Button><br /><br />
-            <Button onClick={handleGithubSignInTwo}>Sign in with Git-hub</Button>
+            <Button onClick={handleGithubSignInTwo}>Sign in with Git-hub</Button><br /><br />
+            <Button onClick={handleFacebookSignInTwo}>Sign in with Facebook</Button>
         </div>
     );
 };

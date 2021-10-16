@@ -11,3 +11,6 @@ color: white;
 .active{
     color: yellow;
 }
+.photo{
+    border-radius: 50%;
+}
