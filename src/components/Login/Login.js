@@ -1,3 +1,4 @@
+import { GithubAuthProvider } from '@firebase/auth';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
@@ -8,12 +9,16 @@ const Login = () => {
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
-    console.log('rased', redirect_uri)
+    // console.log('rased', redirect_uri)
 
     const handleGoogleSignInTwo = () => {
         handleGoogleSignIn()
             .then((result) => {
                 history.push(redirect_uri);
+            })
+            .catch(error => {
+                // setError(error.message);
+                console.log(error.message);
             })
     }
 
@@ -22,6 +27,8 @@ const Login = () => {
             .then((result) => {
                 history.push(redirect_uri);
             })
+            .catch((error) => {
+            });
     }
 
     return (

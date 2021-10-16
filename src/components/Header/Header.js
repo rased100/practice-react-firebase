@@ -10,9 +10,9 @@ const Header = () => {
             <NavLink to="/home" className="header" activeClassName="active">Home</NavLink>
             <NavLink to="/private" className="header" activeClassName="active">Private</NavLink>
 
-            {user?.email ?
+            {user?.email || user?.photoURL ?
                 <span>
-                    <span className="text-white"><span>User: {user.displayName}</span></span>
+                    <span className="text-white"><span>User: {user.displayName}{<img width='40px' src={user?.photoURL} />}</span></span>
                     < NavLink to="/" className="header mx-5" activeClassName="active"><button className="btn btn-danger" onClick={logOut}>Log-uot</button></NavLink>
                 </span>
                 :

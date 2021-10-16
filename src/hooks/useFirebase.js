@@ -8,7 +8,8 @@ const auth = getAuth();
 
 const useFirebase = () => {
     const [user, setUser] = useState();
-    console.log(user)
+    // const [error, setError] = useState('');
+    console.log('r-user', user)
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -23,9 +24,12 @@ const useFirebase = () => {
 
     const handleGithubSignIn = () => {
         return signInWithPopup(auth, githubProvider)
-            .then((result) => {
-                setUser(result.user)
-            })
+        // .then((result) => {
+        //     setUser(result.user)
+        // })
+        // .catch(error => {
+        //     setError(error.message);
+        // })
     }
 
     const logOut = () => {
@@ -48,7 +52,8 @@ const useFirebase = () => {
         user,
         handleGoogleSignIn,
         logOut,
-        handleGithubSignIn
+        handleGithubSignIn,
+        // error
     }
 }
 
